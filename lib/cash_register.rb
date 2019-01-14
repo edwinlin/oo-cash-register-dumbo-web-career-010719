@@ -7,16 +7,10 @@ class CashRegister
     @last_tran = 0
   end
   
-  def add_item(title, price, quantity = nil)
-    if quantity.nil?
-      @last_tran = price
-      @total += price
-      @items << title
-    else
+  def add_item(title, price, quantity = 1)
       @last_tran = price * quantity
       @total += price * quantity
       quantity.times{@items << title}
-    end
   end
   
   def apply_discount
